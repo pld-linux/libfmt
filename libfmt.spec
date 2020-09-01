@@ -1,13 +1,13 @@
 Summary:	Small, safe and fast formatting library
 Name:		libfmt
-Version:	3.0.1
+Version:	7.0.3
 Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://mirrors.kodi.tv/build-deps/sources/fmt-%{version}.tar.gz
-# Source0-md5:	b2c97427a696182b013d2cc0a2f939fe
+Source0:	https://github.com/fmtlib/fmt/archive/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	57392b7ea09592a2b237a02950f35bb0
 URL:		https://github.com/fmtlib/fmt
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	cmake >= 3.1.0
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,20 +67,16 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.rst ChangeLog.rst LICENSE.rst
 %attr(755,root,root) %{_libdir}/libfmt.so.*.*.*
-%ghost %{_libdir}/libfmt.so.3
+%ghost %{_libdir}/libfmt.so.7
 
 %files devel
 %defattr(644,root,root,755)
 %dir %{_includedir}/fmt
-%{_includedir}/fmt/format.cc
-%{_includedir}/fmt/format.h
-%{_includedir}/fmt/ostream.cc
-%{_includedir}/fmt/ostream.h
-%{_includedir}/fmt/posix.h
-%{_includedir}/fmt/time.h
+%{_includedir}/fmt/*.h
 %dir %{_libdir}/cmake/fmt
 %{_libdir}/cmake/fmt/fmt-config-version.cmake
 %{_libdir}/cmake/fmt/fmt-config.cmake
 %{_libdir}/cmake/fmt/fmt-targets-pld.cmake
 %{_libdir}/cmake/fmt/fmt-targets.cmake
 %{_libdir}/libfmt.so
+%{_pkgconfigdir}/fmt.pc
