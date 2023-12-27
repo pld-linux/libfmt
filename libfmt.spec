@@ -33,18 +33,6 @@ Header files for fmt library.
 %description devel -l pl.UTF-8
 Pliki nagłówkowe biblioteki fmt.
 
-%package static
-Summary:	Static fmt library
-Summary(pl.UTF-8):	Statyczna biblioteka fmt
-Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
-
-%description static
-Static fmt library.
-
-%description static -l pl.UTF-8
-Statyczna biblioteka fmt.
-
 %prep
 %setup -q -n fmt-%{version}
 
