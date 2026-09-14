@@ -1,0 +1,12 @@
+--- fmt-12.2.0/include/fmt/format.h.orig	2026-06-16 07:05:35.000000000 +0200
++++ fmt-12.2.0/include/fmt/format.h	2026-09-14 05:41:44.500298260 +0200
+@@ -326,6 +326,9 @@ class uint128 {
+       -> uint128 {
+     return {lhs.hi_ & rhs.hi_, lhs.lo_ & rhs.lo_};
+   }
++  friend constexpr auto operator~(const uint128& src) -> uint128 {
++    return {~src.hi_, ~src.lo_};
++  }
+   friend FMT_CONSTEXPR auto operator+(const uint128& lhs, const uint128& rhs)
+       -> uint128 {
+     auto result = uint128(lhs);

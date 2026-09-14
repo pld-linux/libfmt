@@ -1,13 +1,14 @@
 Summary:	Small, safe and fast formatting library
 Summary(pl.UTF-8):	Mała, bezpieczna i szybka biblioteka do formatowania
 Name:		libfmt
-Version:	12.1.0
+Version:	12.2.0
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/fmtlib/fmt/releases
 Source0:	https://github.com/fmtlib/fmt/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	92eb6f492e4838e5f024ce5207beafc7
+# Source0-md5:	7be257d8bfad55bc9eabb1288ad895be
+Patch0:		%{name}-uint128.patch
 URL:		https://github.com/fmtlib/fmt
 BuildRequires:	cmake >= 3.8
 BuildRequires:	libstdc++-devel >= 6:4.7
@@ -35,6 +36,7 @@ Pliki nagłówkowe biblioteki fmt.
 
 %prep
 %setup -q -n fmt-%{version}
+%patch -P0 -p1
 
 %build
 install -d build
@@ -67,6 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_libdir}/libfmt.so
+%{_libdir}/libfmt-c.a
 %{_includedir}/fmt
 %{_libdir}/cmake/fmt
 %{_pkgconfigdir}/fmt.pc
