@@ -25,8 +25,8 @@ Nowoczesna biblioteka formatująca
 Summary:	Header files for fmt library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki fmt
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-Requires:	libstdc++-devel >= 6:4.7
+Requires:	%{name}%{?_isa} = %{version}-%{release}
+Requires:	libstdc++-devel%{?_isa} >= 6:4.7
 
 %description devel
 Header files for fmt library.
